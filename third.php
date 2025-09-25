@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Exercise 2.3</title>
+<title>Third Exercise</title>
 <style>
   body { font-family: Arial, sans-serif; }
   h2 { margin-bottom: 0; }
