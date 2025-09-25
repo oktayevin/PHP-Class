@@ -25,7 +25,7 @@ $duration = 10;
 $rate = 0.05;
 
 echo "<table>";
-echo "<tr><th>year</th><th>interest</th><th>capital</th></tr>";
+echo "<tr><th>Year</th><th>Interest</th><th>Capital</th></tr>";
 
 for ($year = 1; $year <= $duration; $year++) {
     $interest = $capital * $rate;
