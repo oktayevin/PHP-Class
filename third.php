@@ -1,5 +1,5 @@
 <?php
-// ex2_3.php
+// third.php
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
