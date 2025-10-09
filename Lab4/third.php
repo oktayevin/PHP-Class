@@ -74,18 +74,6 @@ $emailsList = read_emails($filename);
 <head>
   <meta charset="utf-8">
   <title>Admin page: The story of the gnome Jerome</title>
-  <style>
-    body{font-family:Arial,serif;margin:20px;max-width:760px}
-    table{border-collapse:collapse;width:100%}
-    th,td{padding:6px 8px;border-bottom:1px solid #ddd;text-align:left;font-size:14px}
-    a{color:#06c;text-decoration:underline}
-    .muted{color:#666;font-size:90%}
-    .error{color:#900;margin:6px 0}
-    .success{color:#060;margin:6px 0}
-    .back{display:inline-block;margin-top:10px}
-    input[type="text"]{width:300px;padding:4px}
-    input[type="submit"]{padding:4px 8px}
-  </style>
 </head>
 <body>
   <h1>Admin page: The story of the gnome Jerome</h1>
