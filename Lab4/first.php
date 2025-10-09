@@ -52,7 +52,7 @@ if (!file_exists($filename)) {
 
   <?php if ($errors): ?>
     <?php foreach ($errors as $e): ?>
-      <div class="error"><?= $e ?></div>
+      <div class="error"><?= htmlspecialchars($e, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></div>
     <?php endforeach; ?>
   <?php else: ?>
     <div class="card">
