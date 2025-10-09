@@ -92,7 +92,7 @@ $emailsList = read_emails($filename);
       <input type="hidden" name="id" value="<?= $id ?>">
       <input type="submit" name="submit_change" value="submit: change">
     </form>
-    <p class="muted"><a href="admin.php">Back to the main page</a></p>
+    <p class="muted"><a href="third.php">Back to the main page</a></p>
 
   <?php else: ?>
     <table>
@@ -107,9 +107,9 @@ $emailsList = read_emails($filename);
             <tr>
               <td><?= htmlspecialchars($em, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></td>
               <td>
-                <a href="admin.php?action=delete&id=<?= $idx ?>" onclick="return confirm('Delete this address?')">delete</a>
+                <a href="third.php?action=delete&id=<?= $idx ?>" onclick="return confirm('Delete this address?')">delete</a>
                  &nbsp;
-                <a href="admin.php?action=edit&id=<?= $idx ?>">edit</a>
+                <a href="third.php?action=edit&id=<?= $idx ?>">edit</a>
               </td>
             </tr>
           <?php endforeach; ?>
