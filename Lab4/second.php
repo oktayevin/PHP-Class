@@ -26,15 +26,15 @@ $submittedEmail = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $submittedEmail = trim((string)($_POST['email'] ?? ''));
     if ($submittedEmail === '') {
-        $errors[] = 'Lütfen bir e-posta adresi girin.';
+        $errors[] = 'Please Enter an e-mail address.';
     } elseif (!filter_var($submittedEmail, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Geçersiz e-posta adresi formatı.';
+        $errors[] = 'Invalid e-mail address.';
     } elseif (mb_strlen($submittedEmail) > 256) {
-        $errors[] = 'E-posta adresi çok uzun.';
+        $errors[] = 'E-mail is too long.';
     } else {
         $emailToStore = str_replace(["\r", "\n"], '', $submittedEmail);
         if (prepend_email($filename, $emailToStore)) {
-            $success = 'E-posta kaydedildi.';
+            $success = 'E-mail saved.';
             $submittedEmail = '';
         } else {
             $errors[] = 'Dosyaya yazma sırasında hata oluştu.';
@@ -73,7 +73,7 @@ $emailsList = read_emails($filename);
         id="email"
         name="email"
         type="email"
-        placeholder="your@example.com"
+        placeholder="mail@example.com"
         value="<?= htmlspecialchars($submittedEmail, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
         required
         autocomplete="email"

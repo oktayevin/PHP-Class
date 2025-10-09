@@ -32,13 +32,13 @@ function write_emails(string $fn, array $emails): bool {
 if ($action === 'delete' && $id >= 0) {
     $emails = read_emails($filename);
     if (!isset($emails[$id])) {
-        $errors[] = 'Silinecek e-posta bulunamadı.';
+        $errors[] = 'Could not find an email to delete.';
     } else {
         array_splice($emails, $id, 1);
         if (write_emails($filename, $emails)) {
-          $success = 'Adres silindi.';
+          $success = 'email deleted.';
         } else {
-          $errors[] = 'Dosya açılamıyor.';
+          $errors[] = 'file can not be opened.';
         }
     }
 }
@@ -48,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_change'])) {
     $postId = isset($_POST['id']) ? (int)$_POST['id'] : -1;
     $newEmail = trim((string)($_POST['email'] ?? ''));
     if ($newEmail === '' || !filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Geçerli bir e-posta girin.';
+        $errors[] = 'Please enter a valid email.';
     } else {
         $emails = read_emails($filename);
         if (!isset($emails[$postId])) {
-            $errors[] = 'Düzenlenecek adres bulunamadı.';
+            $errors[] = 'Could not find an email to edit.';
         } else {
             $emails[$postId] = str_replace(["\r", "\n"], '', $newEmail);
             if (write_emails($filename, $emails)) {
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_change'])) {
               // after change, show list
               $action = '';
             } else {
-              $errors[] = 'Dosya açılamıyor.';
+              $errors[] = 'File can not be opened.';
             }
         }
     }

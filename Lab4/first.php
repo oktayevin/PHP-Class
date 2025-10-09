@@ -10,14 +10,14 @@ $totalLines = 0;
 $emptyLines = 0;
 
 if (!file_exists($filename)) {
-    $errors[] = "Hata: 'GnomeJerome.txt' bulunamadı (".htmlspecialchars($filename).").";
+    $errors[] = "Error: 'GnomeJerome.txt' could not be find (".htmlspecialchars($filename).").";
 } elseif (!is_readable($filename)) {
-    $errors[] = "Hata: 'GnomeJerome.txt' okunamıyor. Dosya izinlerini kontrol edin.";
+    $errors[] = "Error: 'GnomeJerome.txt' can not be read. Check the file permissions.";
 } else {
     // Dosyayı oku
     $raw = file_get_contents($filename);
     if ($raw === false) {
-        $errors[] = "Hata: Dosya okunurken bir sorun oluştu.";
+        $errors[] = "Error: Dosya okunurken bir sorun oluştu.";
     } else {
         // Satır sonlarını normalize et (\r\n, \r -> \n)
         $normalized = str_replace(["\r\n", "\r"], "\n", $raw);
@@ -55,14 +55,6 @@ if (!file_exists($filename)) {
       <div class="error"><?= $e ?></div>
     <?php endforeach; ?>
   <?php else: ?>
-    <!--<div class="meta">
-      <strong>File:</strong> <?= htmlspecialchars(basename($filename)) ?>
-      <span class="muted">|</span>
-      <strong>Total lines:</strong> <?= $totalLines ?>
-      <span class="muted">|</span>
-      <strong>Empty lines:</strong> <?= $emptyLines ?>
-    </div>-->
-
     <div class="card">
       <pre><?= $content ?></pre>
     </div>
